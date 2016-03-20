@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <title>Web Cine</title>
+      <!-- bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+</head>
+<body>
+      <div class="text-center" style="background: #000">
+            <br>
+            <img src="images/uvk_logo.png" class="img-circle">
+            <hr>
+      </div>
+      <div class="container">
+            <!-- <div class="table-responsive"> -->
+                  <table class="table table-striped">
+                        <thead class="danger">
+                              <tr>
+                                    <th>Id</th>
+                                    <th>Titulo</th>
+                                    <th>Director</th>
+                                    <th>Trailer</th>
+                                    <th>Poster</th>
+                                    <th></th>
+                                    <th><a href="/formInsertar" class="btn btn-primary"><i class="fa fa-user-plus"></i>Agregar</a></th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                              <%registros.forEach(function(registro){%> <!-- (registro) es un thisArg -->
+                              <tr>
+                                    <td><%=registro.id%></td>
+                                    <td><%=registro.titulo%></td>
+                                    <td><%=registro.director%></td>
+                                    <td><%=registro.trailer%></td>
+                                    <td>
+                                          <img src="<%=registro.imagen%>"width="170px" height="250px">
+                                    </td>
+                                    <td><a href="/formEditar/<%=registro.id%>" class="btn btn-warning"><i class="fa fa-pencil-square"></i>Editar</a></td>
+                                    <td><a href="/eliminar/<%=registro.id%>" class="btn btn-danger"><i class="fa fa-trash-o"></i>Eliminar</a></td>
+                              </tr>
+                              <%})%>
+                        </tbody>
+                  </table>
+            <!-- </div> -->
+      </div>
+</body>
+</html>
